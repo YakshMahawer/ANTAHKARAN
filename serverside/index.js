@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const connectDB = require("./db/connection");
 require("dotenv").config();
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const twilioRouter= require('./routes/twilio-sms');
 
 app.get('/test', (req,res) => {
     res.json({
@@ -9,7 +12,14 @@ app.get('/test', (req,res) => {
     });
 });
 
+const jsonParser = bodyParser.json();
+
+app.use(jsonParser);
+app.use(cors());
+app.use("/twilio-sms", twilioRouter);
+
 const port = 8000;
+
 
 const start = async () => {
   await connectDB(process.env.MONGO_URI)

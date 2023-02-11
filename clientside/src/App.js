@@ -1,4 +1,5 @@
 import {React, useEffect, useState} from "react"
+import StepForm from "./components/stepform";
 
 function App() {
   const [testData, setData] = useState([{}]);
@@ -11,6 +12,7 @@ function App() {
   }, []);
   return (
     <div>
+      <StepForm/>
     </div>
   );
 }
