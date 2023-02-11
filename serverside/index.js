@@ -5,6 +5,7 @@ require("dotenv").config();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const twilioRouter= require('./routes/twilio-sms');
+const adminauth = require("./routes/adminauth")
 
 app.get('/test', (req,res) => {
     res.json({
@@ -17,6 +18,7 @@ const jsonParser = bodyParser.json();
 app.use(jsonParser);
 app.use(cors());
 app.use("/twilio-sms", twilioRouter);
+app.use("/admin",adminauth);
 
 const port = 8000;
 

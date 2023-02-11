@@ -1,5 +1,7 @@
 import {React, useEffect, useState} from "react"
 import StepForm from "./components/stepform";
+import Adminlogin from "./components/AdminLogin";
+import AfterAdminLogin from "./components/AfterAdminlogin";
 
 function App() {
   const [testData, setData] = useState([{}]);
@@ -12,7 +14,7 @@ function App() {
   }, []);
   return (
     <div>
-      <StepForm/>
+      <Adminlogin/>
     </div>
   );
 }
